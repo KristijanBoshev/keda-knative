@@ -1,1 +1,61 @@
-placeholder
+# --- OS / Editor noise ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- Logs / temp / cache ---
+*.log
+*.tmp
+*.bak
+tmp/
+temp/
+.cache/
+
+# --- Secrets and local environment ---
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+secrets/
+**/secrets/*.yaml
+**/secrets/*.yml
+**/*secret*.yaml
+**/*secret*.yml
+*.dec.yaml
+*.dec.yml
+
+# --- Kubernetes local config ---
+kubeconfig
+kubeconfig.*
+*.kubeconfig
+
+# --- Rendered / generated Kubernetes output ---
+rendered/
+generated/
+build/
+dist/
+*.rendered.yaml
+*.rendered.yml
+*.generated.yaml
+*.generated.yml
+
+# --- Helm artifacts ---
+charts/*/charts/
+charts/*/tmpcharts/
+*.tgz
+helmfile.lock
+
+# --- Kustomize and tooling output ---
+kustomization.rendered.yaml
+kustomization.build.yaml
+
+# --- Test / validation artifacts ---
+junit*.xml
+coverage/
