@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: knative-service
+  namespace: keda-knative
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+
+spec:
+  template:
+    spec:
+      containers:
+      - image: ghcr.io/kristijanboshev/interoperable-portable-agnostic-stack:v1.0.0
