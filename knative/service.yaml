@@ -11,3 +11,17 @@ spec:
     spec:
       containers:
       - image: ghcr.io/kristijanboshev/interoperable-portable-agnostic-stack:v1.0.0
+        ports:
+        - containerPort: 5000
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
