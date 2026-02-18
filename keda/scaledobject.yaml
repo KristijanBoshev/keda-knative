@@ -8,6 +8,8 @@ spec:
     name: keda
   minReplicaCount: 1
   maxReplicaCount: 10
+  pollingInterval: 15
+  cooldownPeriod: 120
   triggers:
   - type: prometheus
     metadata:
