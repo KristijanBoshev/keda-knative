@@ -18,4 +18,26 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - ServerSideApply=true  
+      - ServerSideApply=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: keda-resources
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: git@github.com:KristijanBoshev/keda-knative.git
+    targetRevision: HEAD
+    path: keda
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: keda-knative
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
