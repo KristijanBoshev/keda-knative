@@ -8,6 +8,13 @@ metadata:
 
 spec:
   template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/metric: "rps"
+        autoscaling.knative.dev/target: "20"
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "20"
+        autoscaling.knative.dev/scaleDownDelay: "30s"
     spec:
       containers:
       - image: ghcr.io/kristijanboshev/production-engineer-rldatix-task:v1.0.7
