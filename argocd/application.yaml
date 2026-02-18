@@ -12,6 +12,13 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: keda-knative
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: knative
+      namespace: keda-knative
+      jsonPointers:
+        - /spec/replicas  
   syncPolicy:
     automated:
       prune: true
@@ -34,6 +41,13 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: keda-knative
+  ignoreDifferences:
+    - group: apps
+      kind: Deployment
+      name: keda
+      namespace: keda-knative
+      jsonPointers:
+        - /spec/replicas  
   syncPolicy:
     automated:
       prune: true
