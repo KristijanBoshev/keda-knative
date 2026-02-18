@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keda
+  namespace: keda-knative
+  labels:
+    app: keda
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: keda
+  template:
+    metadata:
+      labels:
+        app: keda
+    spec:
+      containers:
+      - name: todo-container
+        image: ghcr.io/kristijanboshev/production-engineer-rldatix-task:v1.0.7
+        ports:
+        - name: http
+          containerPort: 5000
+          protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 10
+          periodSeconds: 10
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 3
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 5000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 1
+          successThreshold: 1
+          failureThreshold: 3
+        resources: {}

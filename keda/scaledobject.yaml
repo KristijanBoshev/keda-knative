@@ -1,0 +1,17 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: keda-scaledobject
+  namespace: keda-knative
+spec:
+  scaleTargetRef:
+    name: keda
+  minReplicaCount: 1
+  maxReplicaCount: 10
+  triggers:
+  - type: prometheus
+    metadata:
+      metricName: http_requests_received_total_rate
+      serverAddress: http://prometheus-operated.monitoring.svc.cluster.local:9090
+      threshold: '5'
+      query: sum(rate(http_requests_received_total{endpoint!="/metrics"}[1m]))
