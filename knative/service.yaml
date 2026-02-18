@@ -10,7 +10,7 @@ spec:
   template:
     spec:
       containers:
-      - image: ghcr.io/kristijanboshev/interoperable-portable-agnostic-stack:v1.0.0
+      - image: ghcr.io/kristijanboshev/production-engineer-rldatix-task:v1.0.7
         name: todo-container
         ports:
         - containerPort: 5000
