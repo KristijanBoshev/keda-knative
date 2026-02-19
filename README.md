@@ -69,3 +69,13 @@ This repo is the source of truth for cluster behavior.
 ## Goal
 
 Provide a clean, realistic baseline to experiment with autoscaling strategies, compare behavior under load, and manage everything through GitOps.
+
+## Deployment URL testing
+
+Keda testing:
+
+`curl https://keda-vpc.kristijanboshev.com/healthz`
+
+Knative testing:
+
+`curl https://knative-service.keda-knative.kristijanboshev.com/healthz`
