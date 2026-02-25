@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: keda-knative
+  name: knative-finki
   namespace: argocd
 spec:
   project: default
@@ -30,7 +30,7 @@ spec:
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: keda-resources
+  name: keda-finki
   namespace: argocd
 spec:
   project: default
